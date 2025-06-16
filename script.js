@@ -287,7 +287,7 @@ const menuData = {
         {
             name: "Catupiry Original",
             ingredients: "Recheio de borda.",
-            price: "R$ 5,00",
+            price: "R$ 10,00",
             image: "imagens/catupiry.png"
         },
         {
@@ -299,37 +299,37 @@ const menuData = {
         {
             name: "Chocolate ao leite",
             ingredients: "Recheio de borda.",
-            price: "R$ 5,00",
+            price: "R$ 8,00",
             image: "imagens/chocolateborda.png"
         },
         {
             name: "Chocolate branco",
             ingredients: "Recheio de borda.",
-            price: "R$ 5,00",
+            price: "R$ 8,00",
             image: "imagens/chocolatebranco.png"
         },
         {
             name: "Cream Cheese",
             ingredients: "Recheio de borda.",
-            price: "R$ 5,00",
+            price: "R$ 10,00",
             image: "imagens/creamcheese.png"
         },
         {
             name: "Doce de leite",
             ingredients: "Recheio de borda.",
-            price: "R$ 5,00",
+            price: "R$ 10,00",
             image: "imagens/docedeleite.png"
         },
         {
             name: "Goiabada",
             ingredients: "Recheio de borda.",
-            price: "R$ 5,00",
+            price: "R$ 8,00",
             image: "imagens/goiabada.png"
         },
         {
             name: "Pão de Alho",
             ingredients: "Recheio de borda.",
-            price: "R$ 5,00",
+            price: "R$ 10,00",
             image: "imagens/paodealho.png"
         },
         {
