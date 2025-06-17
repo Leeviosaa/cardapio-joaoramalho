@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,76 +7,38 @@
     <title>Pizzaria Joao Ramalho</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
+<header>
     <header>
-        <header>
-            <img src="imagens/pizzajoaoramalho.png" alt="pizzajoaoramalho" class="logo">
-          </header>          
-    </header>
+        <img src="imagens/pizzajoaoramalho.png" alt="pizzajoaoramalho" class="logo">
+    </header>          
+</header>
 
-    <nav id="category-buttons">
-  <button data-category="pizzas">
-      <img src="imagens/icon_pizza.png" class="icon"> Pizzas
-  </button>
-  <button data-category="bordas">
-      <img src="imagens/icon_borda.png" class="icon"> Bordas
-  </button>
-  <button data-category="doces">
-      <img src="imagens/icon_doce.png" class="icon"> Doces
-  </button>
-  <button data-category="bebidas">
-      <img src="imagens/icon_bebida.png" class="icon"> Bebidas
-  </button>
+<nav id="category-buttons">
+    <button onclick="showCategory('pizzas')">
+        <img src="imagens/icon_pizza.png" class="icon"> Pizzas
+    </button>
+    <button onclick="showCategory('bordas')">
+        <img src="imagens/icon_borda.png" class="icon"> Bordas
+    </button>
+    <button onclick="showCategory('doces')">
+        <img src="imagens/icon_doce.png" class="icon"> Doces
+    </button>
+    <button onclick="showCategory('bebidas')">
+        <img src="imagens/icon_bebida.png" class="icon"> Bebidas
+    </button>
 </nav>
 
-    
-    <div class="pizza-info-line">
-    🛈 Pizzas Grandes contêm 8 pedaços - Pizzas Broto contêm 4 pedaços
+<div class="pizza-info-line">
+🛈 Pizzas Grandes contêm 8 pedaços - Pizzas Broto contêm 4 pedaços
 </div>
 
+<main id="menu">
+    <!-- Itens aparecem aqui -->
+</main>
 
-    <main id="menu">
-        <!-- Itens aparecem aqui -->
-    </main>
-
-    <script src="script.js"></script>
-
-    <div id="carrinho-container">
-        <h2>Seu Pedido</h2>
-        <div id="carrinho"></div>
-        <div id="total-carrinho">Total: R$ 0,00</div>
-        <button id="finalizar-pedido" onclick="finalizarPedido()">
-            Finalizar Pedido
-        </button>
-    </div>
-    
-    <script>
-        document.getElementById('finalizar-pedido').addEventListener('click', () => {
-            if (carrinho.length === 0) {
-                alert('Seu carrinho está vazio!');
-                return;
-            }
-            
-            const pedido = {
-                itens: carrinho,
-                total: carrinho.reduce((sum, item) => sum + (item.preco * item.quantidade), 0),
-                data: new Date().toLocaleString()
-            };
-            
-            console.log('Pedido finalizado:', pedido);
-            alert(`Pedido finalizado! Total: R$ ${pedido.total.toFixed(2)}`);
-            
-            // Aqui você pode adicionar código para enviar o pedido para o backend
-            carrinho = [];
-            atualizarCarrinho();
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
 <footer class="footer">
   <p>
     <img src="imagens/icon_telefone.png" class="icon-inline"> (11) 96344-5000 |
@@ -83,4 +46,8 @@
     <img src="imagens/icon_instagram.png" class="icon-inline"> Instagram: @pizzaria_joao_ramalho
   </p>
 </footer>
+
+<script src="script.js" defer></script>
+
+</body>
 </html>
