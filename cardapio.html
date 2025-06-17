@@ -6,6 +6,8 @@
     <title>Pizzaria Joao Ramalho</title>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 
@@ -42,6 +44,37 @@
 
     <script src="script.js"></script>
 
+    <div id="carrinho-container">
+        <h2>Seu Pedido</h2>
+        <div id="carrinho"></div>
+        <div id="total-carrinho">Total: R$ 0,00</div>
+        <button id="finalizar-pedido" onclick="finalizarPedido()">
+            Finalizar Pedido
+        </button>
+    </div>
+    
+    <script>
+        document.getElementById('finalizar-pedido').addEventListener('click', () => {
+            if (carrinho.length === 0) {
+                alert('Seu carrinho está vazio!');
+                return;
+            }
+            
+            const pedido = {
+                itens: carrinho,
+                total: carrinho.reduce((sum, item) => sum + (item.preco * item.quantidade), 0),
+                data: new Date().toLocaleString()
+            };
+            
+            console.log('Pedido finalizado:', pedido);
+            alert(`Pedido finalizado! Total: R$ ${pedido.total.toFixed(2)}`);
+            
+            // Aqui você pode adicionar código para enviar o pedido para o backend
+            carrinho = [];
+            atualizarCarrinho();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 <footer class="footer">
   <p>
