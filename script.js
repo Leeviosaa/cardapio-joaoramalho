@@ -635,25 +635,39 @@ function openCheckout() {
 }
 
 function confirmOrder() {
-    const name = document.getElementById('clientName').value;
-    const table = document.getElementById('tableNumber').value;
+    const name = document.getElementById('clientName').value.trim();
+    const table = document.getElementById('tableNumber').value.trim();
 
     if (!name || !table) {
         alert("Por favor, preencha todos os campos.");
         return;
     }
 
-    document.querySelector('.modal-overlay').remove();
+    const phone = '5511951242099'; // WhatsApp da cozinha
+    let message = `*Novo pedido!*\n`;
+    message += `*Cliente:* ${name}\n`;
+    message += `*Mesa:* ${table}\n\n`;
+    message += `*Itens:*\n`;
 
-    const modal = createModal(`
-        <h2>Pedido confirmado!</h2>
-        <p>A cozinha irá receber o pedido e levará à sua mesa quando pronto.</p>
-        <button onclick="closeConfirmation()">Fechar</button>
-    `);
-    document.body.appendChild(modal);
+    let total = 0;
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        message += `- ${item.name} x${item.quantity} – R$ ${itemTotal.toFixed(2).replace('.', ',')}\n`;
+    });
+
+    message += `\n*Total:* R$ ${total.toFixed(2).replace('.', ',')}`;
+
+    const whatsappURL = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappURL, '_blank');
+
+    // Fecha modal e esvazia o carrinho
+    document.querySelector('.modal-overlay').remove();
     cart = [];
     updateCart();
 }
+
+
 
 function closeConfirmation() {
     document.querySelector('.modal-overlay').remove();
