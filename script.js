@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adiciona event listeners para os botões de categoria
     document.querySelectorAll('#category-buttons button').forEach(button => {
         button.addEventListener('click', function() {
-            const category = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+            const category = this.dataset.category;
             loadCategory(category);
         });
     });
